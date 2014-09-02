@@ -9,19 +9,17 @@
  */
 angular.module('simpleTodoApp')
     .controller('MainCtrl', function ($log, $scope, localStorageService) {
-        var todosInStore = localStorageService.get('todos');
+        $scope.todos = [];
+        $scope.todo = {};
+        
+        localStorageService.bind($scope, 'todos');
 
-        $scope.todos = todosInStore && todosInStore.split('\n') || [];
-        $scope.$watch('todos', function () {
-            localStorageService.add('todos', $scope.todos.join('\n'));
-        }, true);
-
-        $scope.todo = '';
         $scope.addTodo = function () {
-            if ($scope.todo) {
+            if ($scope.todo.title) {
                 $log.log('Adding todo: ' + $scope.todo);
+                $scope.todo.timestamp = new Date();
                 $scope.todos.push($scope.todo);
-                $scope.todo = '';
+                $scope.todo = {};
             }
         };
         $scope.removeTodo = function (index) {

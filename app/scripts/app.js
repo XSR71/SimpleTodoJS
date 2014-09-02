@@ -18,6 +18,9 @@ angular
     'ngTouch',
     'LocalStorageModule',
   ])
+    .controller('NavCtrl', function ($scope, $route) {
+        $scope.$route = $route;
+    })
     .config(['localStorageServiceProvider',
         function (localStorageServiceProvider) {
             localStorageServiceProvider.setPrefix('ls');
@@ -26,11 +29,13 @@ angular
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
+                controller: 'MainCtrl',
+                activeTab: 'Home'
             })
             .when('/about', {
                 templateUrl: 'views/about.html',
-                controller: 'AboutCtrl'
+                controller: 'AboutCtrl',
+                activeTab: 'About'
             })
             .otherwise({
                 redirectTo: '/'

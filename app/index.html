@@ -22,18 +22,17 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">simpleTodo</h3>
+        <ul class="nav nav-pills pull-right" ng-controller='NavCtrl'>
+          <li ng-class="{active: $route.current.activeTab == 'Home'}"><a ng-href="#">Home</a></li>
+          <li ng-class="{active: $route.current.activeTab == 'About'}"><a ng-href="#/about">About</a></li>
+       </ul>
+        <h3 class="text-muted">SimpleTodo</h3>
       </div>
-
+       
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class='glyphicon glyphicon-star'></span> made with AngularJS and Yeoman</p>
       </div>
     </div>
 
