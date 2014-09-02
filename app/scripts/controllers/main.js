@@ -12,13 +12,13 @@ angular.module('simpleTodoApp')
         $scope.todos = [];
         $scope.todo = {};
         
-        localStorageService.bind($scope, 'todos');
+        localStorageService.bind($scope, 'todos', $scope.todos);
 
         $scope.addTodo = function () {
             if ($scope.todo.title) {
-                $log.log('Adding todo: ' + $scope.todo);
+                $log.log('Adding todo: ' + $scope.todo.title);
                 $scope.todo.timestamp = new Date();
-                $scope.todos.push($scope.todo);
+				$scope.todos.push($scope.todo);
                 $scope.todo = {};
             }
         };

@@ -23,7 +23,7 @@ angular
     })
     .config(['localStorageServiceProvider',
         function (localStorageServiceProvider) {
-            localStorageServiceProvider.setPrefix('ls');
+            localStorageServiceProvider.setPrefix('simpleTodo');
         }])
     .config(function ($routeProvider) {
         $routeProvider
