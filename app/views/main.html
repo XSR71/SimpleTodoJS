@@ -6,7 +6,7 @@
             <div class='input-group'>
                 <input type='text' ng-model='todo.title' placeholder='What needs to be done?' class='form-control' />
                 <span class='input-group-btn'>
-					<button type='submit' aria-label='Submit' class='btn btn-primary'><i class='fa fa-plus'></i></button>
+					<button type='submit' aria-label='Submit' class='btn btn-primary'><i class='fa fa-plus fa-fw'></i></button>
 				</span>
             </div>
         </div>
@@ -19,7 +19,7 @@
         <p class="input-group input-group-sm">
             <input type='text' ng-model='todo.title' class='form-control'>
             <span class='input-group-btn'>
-			<button class='btn btn-danger' ng-click='removeTodo($index)' aria-label='Remove'><i class='fa fa-trash'></i></button>
+			<button class='btn btn-danger' ng-click='removeTodo($index)' aria-label='Remove'><i class='fa fa-trash fa-fw'></i></button>
         </span>
         </p>
     </div>
