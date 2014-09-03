@@ -5,6 +5,9 @@
         <div class='row'>
             <div class='input-group'>
                 <input type='text' ng-model='todo.title' placeholder='What needs to be done?' class='form-control' />
+                <span class='input-group-btn' tooltip='Optional: Due date' tooltip-placement='top'>
+					<button type='button' class='btn btn-default' ng-click="datepickToggle($event)" close-on-date-selection='false' datepicker-popup='dd-MMMM-yyyy' ng-model='todo.duedate' show-button-bar='true' is-open='$parent.showDatepick' datepicker-append-to-body='true'><i class='fa fa-calendar'></i></button>
+				</span>				
                 <span class='input-group-btn'>
 					<button type='submit' aria-label='Submit' class='btn btn-primary' tooltip='Add Task' tooltip-placement='bottom'><i class='fa fa-plus fa-fw'></i></button>
 				</span>
@@ -13,11 +16,21 @@
     </form>
 
     <p></p>
+	
+	<div ng-show='todos.length'>
+		<strong>Order By:</strong>
+		<button class='btn btn-default btn-xs' ng-click='orderBy("timestamp")'>Created</button>
+		<button class='btn btn-default btn-xs' ng-click='orderBy("duedate")'>Due date</button>
+	</div>
+	
+	<p></p>
 
     <div ng-repeat='todo in todos' class='list-group'>
         <span class='label label-info' tooltip='Creation date' tooltip-placement='right'>On: {{todo.timestamp | date: 'short'}}</span>
+        <span ng-show='todo.duedate' class='label label-warning' tooltip='Due date' tooltip-placement='right'>Due date: {{todo.duedate | date: 'shortDate'}}</span>
+
         <p class="input-group input-group-sm">
-            <input type='text' ng-model='todo.title' class='form-control'>
+            <input type='text' ng-model='todo.title' class='form-control' />
             <span class='input-group-btn'>
 			<button class='btn btn-danger' ng-click='confirmRemove($index)' aria-label='Remove' tooltip='Remove Task' tooltip-placement='bottom'><i class='fa fa-trash fa-fw'></i></button>
         </span>
