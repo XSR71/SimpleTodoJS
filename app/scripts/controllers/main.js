@@ -11,6 +11,7 @@ angular.module('simpleTodoApp')
     .controller('MainCtrl', function ($log, $scope, localStorageService, $modal) {
         $scope.todos = [];
         $scope.todo = {};
+        $scope.isCollapsed = true;
 
         localStorageService.bind($scope, 'todos', $scope.todos);
 

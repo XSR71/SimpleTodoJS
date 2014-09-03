@@ -28,8 +28,6 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
 	  'bower_components/angular-local-storage/angular-local-storage.js',
       'bower_components/angular-bootstrap/ui-bootstrap.js',
-      'bower_components/bootstrap/dist/bootstrap.js',
-      'bower_components/jquery/dist/jquery.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
