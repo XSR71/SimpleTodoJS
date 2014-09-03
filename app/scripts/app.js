@@ -17,6 +17,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'LocalStorageModule',
+    'ui.bootstrap',
   ])
     .controller('NavCtrl', function ($scope, $route) {
         $scope.$route = $route;

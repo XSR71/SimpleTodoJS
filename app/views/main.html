@@ -6,7 +6,7 @@
             <div class='input-group'>
                 <input type='text' ng-model='todo.title' placeholder='What needs to be done?' class='form-control' />
                 <span class='input-group-btn'>
-					<button type='submit' aria-label='Submit' class='btn btn-primary'><i class='fa fa-plus fa-fw'></i></button>
+					<button type='submit' aria-label='Submit' class='btn btn-primary' tooltip='Add Task' tooltip-placement='bottom'><i class='fa fa-plus fa-fw'></i></button>
 				</span>
             </div>
         </div>
@@ -15,12 +15,29 @@
     <p></p>
 
     <div ng-repeat='todo in todos' class='list-group'>
-        <span class='label label-warning'>On: {{todo.timestamp | date: 'short'}}</span>
+        <span class='label label-info' tooltip='Creation date' tooltip-placement='right'>On: {{todo.timestamp | date: 'short'}}</span>
         <p class="input-group input-group-sm">
             <input type='text' ng-model='todo.title' class='form-control'>
             <span class='input-group-btn'>
-			<button class='btn btn-danger' ng-click='removeTodo($index)' aria-label='Remove'><i class='fa fa-trash fa-fw'></i></button>
+			<button class='btn btn-danger' ng-click='confirmRemove($index)' aria-label='Remove' tooltip='Remove Task' tooltip-placement='bottom'><i class='fa fa-trash fa-fw'></i></button>
         </span>
         </p>
     </div>
 </div>
+
+<div class='modal' role='dialog'>
+    <script type="text/ng-template" id="modalContent.html">
+        <div class="modal-header alert alert-warning">
+            <h3 class="modal-title">Confirmation</h3>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to remove the task?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" ng-click="confirmOk()">OK</button>
+            <button class="btn btn-default" ng-click="confirmCancel()">Cancel</button>
+        </div>
+    </script>
+</div>
+
+
